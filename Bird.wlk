@@ -2,6 +2,7 @@ object Bird {
 	
 	var energy = 0
 	var distanceAbleToFly = 0
+	var myTrainner
 	const joule4Grams = 4
 	const basicEnergyToFlyJoules = 10
 	
@@ -88,5 +89,27 @@ object Bird {
 	
 	method setEnergy(_energy) {
 		energy = _energy
+	}
+	
+	method setMyTrainner(_myTrainner) {
+		myTrainner = _myTrainner
+	}
+}
+
+
+
+object Trainner {
+	var bird
+	
+	method trainBird(_bird){
+		bird = _bird
+		bird.setMyTrainner(self)
+		
+		bird.setEnergy(20)
+		bird.fly(10)
+		bird.eat(20, "", false, false, false)
+		bird.fly(5)
+		return bird.doWhatYouWant()
+		
 	}
 }
